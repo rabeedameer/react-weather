@@ -9,6 +9,7 @@ class Weather extends Component{
         {this.props.temperature && <p>Temperature: {this.props.temperature}°</p>}
         {this.props.humidity && <p>Humidity: {this.props.humidity}</p>}
         {this.props.condition && <p>Conditions: {this.props.condition}</p>}
+        {this.props.error && <p>Attention: {this.props.error}</p>}
       </div>
     );
   }
