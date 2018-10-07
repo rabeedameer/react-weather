@@ -11,7 +11,8 @@ const baseURL= 'http://api.openweathermap.org/data/2.5/';
 class App extends Component{
     getWeather = async(e)=>{// here we defined he method to get a call for the API
       e.preventDefault();
-      const callApi = await fetch(`${baseURL}weather?q=Hama&appid=${API_KEY}&units=metric`);
+      const city = e.target.elements.city.value;
+      const callApi = await fetch(`${baseURL}weather?q=${city}&appid=${API_KEY}&units=metric`);
       const data = await callApi.json();
       console.log(data);
     }
