@@ -32,6 +32,15 @@ class App extends Component{
           condition: data.weather[0].description,
           error:''
         });
+      }else{
+        this.setState({
+          temperature :'',
+          city: '',
+          country:'',
+          humidity:'',
+          condition:'',
+          error:'please! pass in a city name.'
+        });
       }
     }
   render(){
