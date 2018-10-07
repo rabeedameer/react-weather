@@ -14,8 +14,6 @@ class App extends Component{
     city: '',
     country:'',
     humidity:'',
-    minTemp: '',
-    maxTemp:'',
     condition: '',
     error:''
   }
@@ -24,15 +22,17 @@ class App extends Component{
       const city = e.target.elements.city.value;
       const callApi = await fetch(`${baseURL}weather?q=${city}&appid=${API_KEY}&units=metric`);
       const data = await callApi.json();
-      console.log(data);
-      this.setState({
-        temperature :data.main.temp,
-        city: data.name,
-        country: data.sys.country,
-        humidity: data.main.humidity,
-        condition: data.weather[0].description,
-        error:''
-      })
+      if (city){
+        console.log(data);
+        this.setState({
+          temperature :data.main.temp,
+          city: data.name,
+          country: data.sys.country,
+          humidity: data.main.humidity,
+          condition: data.weather[0].description,
+          error:''
+        });
+      }
     }
   render(){
     return(
