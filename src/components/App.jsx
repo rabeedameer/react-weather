@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
+
+import Headers from './Headers';
+
+
 class App extends Component{
   render(){
     return(
       <div>
-        <p>this is a test text</p>
+      <Headers />
       </div>
     );
   }
