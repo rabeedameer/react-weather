@@ -23,7 +23,7 @@ class App extends Component{
       const callApi = await fetch(`${baseURL}weather?q=${city}&appid=${API_KEY}&units=metric`);
       const data = await callApi.json();
       if (city){
-        console.log(data);
+        // console.log(data);
         this.setState({
           temperature :data.main.temp,
           city: data.name,
