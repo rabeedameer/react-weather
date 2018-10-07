@@ -5,7 +5,7 @@ class Headers extends Component{
     return(
       <div>
         <h1>The Weather Today</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, neque vitae sequi possimus repudiandae, odit ipsam iusto dignissimos ullam illum! Adipisci, excepturi. Voluptas magnam consectetur mollitia labore corrupti soluta inventore!</p>
+        <p>Check up the weather here !</p>
       </div>
     );
   }
