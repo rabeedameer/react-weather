@@ -5,7 +5,11 @@ class Weather extends Component{
   render(){
     return(
       <div>
-        This is Weather component
+        <p>Location: {this.props.city}, {this.props.country}</p>
+        <p>Temperature: {this.props.temperature}</p>
+        <p>Humidity: {this.props.humidity}</p>
+        <p>Conditions: {this.props.condition}</p>
+        <p>{this.props.error}</p>
       </div>
     );
   }

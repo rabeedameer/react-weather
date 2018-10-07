@@ -30,8 +30,6 @@ class App extends Component{
         city: data.name,
         country: data.sys.country,
         humidity: data.main.humidity,
-        minTemp: data.main.temp_min,
-        maxTemp: data.main.temp_max,
         condition: data.weather[0].description,
         error:''
       })
@@ -46,8 +44,6 @@ class App extends Component{
         city={this.state.city}
         country={this.state.country}
         humidity={this.state.humidity}
-        minTemp={this.state.minTemp}
-        maxTemp={this.state.maxTemp}
         condition={this.state.condition}
         error={this.state.error}
         />
