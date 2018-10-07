@@ -41,7 +41,16 @@ class App extends Component{
       <div>
       <Headers />
       <Form getWeather={this.getWeather}/>{/*we passed the method as 'props'*/}
-      <Weather/>
+      <Weather
+        temperature={this.state.temperature}
+        city={this.state.city}
+        country={this.state.country}
+        humidity={this.state.humidity}
+        minTemp={this.state.minTemp}
+        maxTemp={this.state.maxTemp}
+        condition={this.state.condition}
+        error={this.state.error}
+        />
       </div>
     );
   }
