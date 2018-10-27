@@ -3,10 +3,11 @@ import React from 'react';
 
 const Weather = (props)=>(
       <div>
-        { props.city && props.country && 
+        { props.city && props.country &&
           <p>
             Location: {props.city}, { props.country}
           </p> }
+
 
         { props.temperature &&
           <p>
@@ -18,7 +19,7 @@ const Weather = (props)=>(
             Humidity: {props.humidity}
           </p> }
 
-        { props.condition && 
+        { props.condition &&
           <p>
             Conditions: {props.condition}
           </p> }
@@ -27,8 +28,13 @@ const Weather = (props)=>(
           <p>
             Attention: {props.error}
           </p> }
+
+          { props.id &&
+            <p className="text-muted">
+              ID: {props.id}
+            </p> }
       </div>
-      
+
     );
 
 

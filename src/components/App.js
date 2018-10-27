@@ -21,15 +21,17 @@ class App extends Component{
         this.setState({
           temperature :data.main.temp,
           city: data.name,
+          id: data.id,
           country: data.sys.country,
           humidity: data.main.humidity,
-          condition: [data.weather[0].main, data.weather[0].description].join(', '), 
+          condition: [data.weather[0].main, data.weather[0].description].join(', '),
           error:''
         });
       }else{
         this.setState({
           temperature :'',
           city: '',
+          id:'',
           country:'',
           humidity:'',
           condition:'',
@@ -45,10 +47,12 @@ class App extends Component{
       <Weather
         temperature={this.state.temperature}
         city={this.state.city}
+        id={this.state.id}
         country={this.state.country}
         humidity={this.state.humidity}
         condition={this.state.condition}
         error={this.state.error}
+
         />
       </div>
     );
