@@ -1,0 +1,1 @@
+export const TO_HISTORY = 'TO_HISTORY';
