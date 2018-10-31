@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import store from './store';
 import { Provider } from 'react-redux';
 
-import App from './components/App';
+import Router from './components/Router';
 
 import "./css/style.css";
 import * as serviceWorker from './serviceWorker';
@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 
 render(
     <Provider store={store}>
-        <App />
+        <Router />
     </Provider>, document.querySelector('#root'));
 
 // If you want your app to work offline and load faster, you can change
