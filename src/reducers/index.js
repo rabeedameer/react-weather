@@ -11,7 +11,14 @@ const initialState = {
 const appReducer = (state = initialState, action)=>{
     switch(action.type){
         case TO_HISTORY:
-        return {...state, history: [...state.history, action.payload]};
+        return {
+            ...state,
+             history: [
+                 ...state.history,
+                  action.payload
+                ],
+            current:action.payload
+            };
         default:
         return state;
     }
