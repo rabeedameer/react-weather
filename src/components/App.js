@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-
+import { connect } from "react-redux";
+import { TO_HISTORY } from '../constants/action-types';
 //internal import
 import Headers from './Headers';
 import Form from './Form';
 import Weather from './Weather';
+import store from '../store';
 
 const API_KEY = 'c5b27ea3cfd3a70d0a3d7ce16693bebc';
 const baseURL= 'http://api.openweathermap.org/data/2.5/';
@@ -42,22 +44,33 @@ class App extends Component{
 
   render(){
     return(
+      
       <div>
+        console.log(current);
       <Headers />
-      <Form getWeather={this.getWeather}/>{/*we passed the method as 'props'*/}
+      <Form onWeather={store}/>
       <Weather
-        temperature={this.state.temperature}
-        city={this.state.city}
-        id={this.state.id}
-        country={this.state.country}
-        humidity={this.state.humidity}
-        condition={this.state.condition}
-        error={this.state.error}
+        temperature={this.current.city}
+        city={this.current.city}
+        id={this.current.id}
+        country={this.current.country}
+        humidity={this.current.humidity}
+        condition={this.current.condition}
+        error={this.current.error}
 
         />
       </div>
     );
-  }
+  };
 }
+const mapStoreToProps = (store) => {
+  return {
+    current: store.current
+  }
+};
+const mapActionsToProps = {
+  onWeather: TO_HISTORY
+};
+export default connect(mapStoreToProps, mapActionsToProps)(App);
 
-export default App;
+
