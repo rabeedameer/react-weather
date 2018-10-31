@@ -5,7 +5,7 @@ import Headers from './Headers';
 import Form from './Form';
 import Weather from './Weather';
 import { connect } from 'react-redux';
-
+import {Link} from 'react-router-dom';
 
 
 
@@ -62,7 +62,10 @@ class App extends Component{
         condition={current.condition}
         error={current.error}
         />
-      
+      <Link to="/history">
+      history
+      </Link>
+
       </div>
       
     );
