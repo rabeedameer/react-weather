@@ -1,26 +1,29 @@
 import React, {Component} from 'react';
-import { connect } from "react-redux";
-import { TO_HISTORY } from '../constants/action-types';
+import { toHistory } from '../actions';
 //internal import
 import Headers from './Headers';
 import Form from './Form';
 import Weather from './Weather';
-import store from '../store';
+import { connect } from 'react-redux';
+
+
+
 
 const API_KEY = 'c5b27ea3cfd3a70d0a3d7ce16693bebc';
 const baseURL= 'http://api.openweathermap.org/data/2.5/';
 
 class App extends Component{
-  state = {};
+
     getWeather = async(e)=>{// here we defined he method to get a call for the API
       e.preventDefault();
+      console.log(this.props);
       const city = e.target.elements.city.value;
       const country = e.target.elements.country.value;
       const callApi = await fetch(`${baseURL}weather?q=${city}&${country}&appid=${API_KEY}&units=metric`);
       const data = await callApi.json();
       if (city && city === data.name){
-        console.log(data);
-        this.setState({
+      
+        this.props.onWeather({
           temperature :data.main.temp,
           city: data.name,
           id: data.id,
@@ -30,7 +33,7 @@ class App extends Component{
           error:''
         });
       }else{
-        this.setState({
+        this.props.onWeather({
           temperature :'',
           city: '',
           id:'',
@@ -43,25 +46,27 @@ class App extends Component{
     }
 
   render(){
+    const {current} = this.props;
+    
     return(
       
       <div>
-        console.log(current);
       <Headers />
-      <Form onWeather={store}/>
+      <Form getWeather={this.getWeather}/>{/*we passed the method as 'props'*/}
       <Weather
-        temperature={this.current.city}
-        city={this.current.city}
-        id={this.current.id}
-        country={this.current.country}
-        humidity={this.current.humidity}
-        condition={this.current.condition}
-        error={this.current.error}
-
+        temperature={current.temperature}
+        city={current.city}
+        id={current.id}
+        country={current.country}
+        humidity={current.humidity}
+        condition={current.condition}
+        error={current.error}
         />
+      
       </div>
+      
     );
-  };
+  }
 }
 const mapStoreToProps = (store) => {
   return {
@@ -69,7 +74,7 @@ const mapStoreToProps = (store) => {
   }
 };
 const mapActionsToProps = {
-  onWeather: TO_HISTORY
+  onWeather: toHistory
 };
 export default connect(mapStoreToProps, mapActionsToProps)(App);
 
