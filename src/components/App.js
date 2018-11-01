@@ -5,7 +5,7 @@ import Headers from './Headers';
 import Form from './Form';
 import Weather from './Weather';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+
 
 
 
@@ -13,6 +13,10 @@ const API_KEY = 'c5b27ea3cfd3a70d0a3d7ce16693bebc';
 const baseURL= 'http://api.openweathermap.org/data/2.5/';
 
 class App extends Component{
+  componentDidMount() {
+    document.title = "Weather | Home";
+    
+  };
 
     getWeather = async(e)=>{// here we defined he method to get a call for the API
       e.preventDefault();
@@ -62,9 +66,7 @@ class App extends Component{
         condition={current.condition}
         error={current.error}
         />
-      <Link to="/history">
-      history
-      </Link>
+      
 
       </div>
       
