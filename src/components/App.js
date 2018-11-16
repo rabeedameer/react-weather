@@ -17,10 +17,9 @@ class App extends Component {
 
   getWeather = async (e) => { // here we defined he method to get a call for the API
     e.preventDefault();
-    console.log(this.props);
     const city = e.target.elements.city.value;
-    // const country = e.target.elements.country.value;
-    const callApi = await fetch(`${baseURL}weather?q=${city}&appid=${API_KEY}&units=metric`);
+    const callApi =
+      await fetch(`${baseURL}weather?q=${city}&appid=${API_KEY}&units=metric`);
     const data = await callApi.json();
     if (city === data.name) {
 
@@ -37,25 +36,28 @@ class App extends Component {
         error: ''
       });
     } else {
-      this.props.onWeather({
-        temperature: '',
-        city: '',
-        id: '',
-        country: '',
-        humidity: '',
-        condition: '',
-        error: 'please! pass in a correct city name.'
-      });
+        console.log( 'please! pass in a correct city name.');
+      //this should be fixed to show error message
     }
   }
 
   render() {
     const {current} = this.props;
 
-    return (<div>
-      <Headers/>
-      <Form getWeather={this.getWeather}/>{/* we passed the method as 'props' */}
-      <Weather temperature={current.temperature} city={current.city} id={current.id} country={current.country} humidity={current.humidity} condition={current.condition} error={current.error}/>
+    return (
+      <div>
+        <Headers/>
+        <Form
+          getWeather={this.getWeather}
+        />
+        <Weather
+          temperature={current.temperature}
+          city={current.city}
+          id={current.id}
+          country={current.country}
+          humidity={current.humidity}
+          condition={current.condition}
+          error={current.error}/>
 
     </div>);
   }

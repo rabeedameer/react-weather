@@ -32,7 +32,7 @@ class History extends React.Component {
         {
           logs.map((log, i) => (<Col lg="3" sm="6" xs="12" mt-1="mt-1" key={i}>
             <Card>
-              <CardImg top="top" width="100%" src={IMG} alt="image"/>
+              <CardImg  width="100%" src={IMG} alt="image"/>
               <CardBody>
                 <CardTitle className="">{`${log.city},${log.country}`}<FontAwesomeIcon icon={faMapMarkerAlt} className="text-success ml-2"/></CardTitle>
                 <CardSubtitle>{`${log.temperature} °C`}<FontAwesomeIcon icon={faThermometerHalf} className="text-danger ml-2"/></CardSubtitle>
