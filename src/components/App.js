@@ -19,10 +19,10 @@ class App extends Component {
     e.preventDefault();
     console.log(this.props);
     const city = e.target.elements.city.value;
-    const country = e.target.elements.country.value;
-    const callApi = await fetch(`${baseURL}weather?q=${city}&${country}&appid=${API_KEY}&units=metric`);
+    // const country = e.target.elements.country.value;
+    const callApi = await fetch(`${baseURL}weather?q=${city}&appid=${API_KEY}&units=metric`);
     const data = await callApi.json();
-    if (city && city === data.name) {
+    if (city === data.name) {
 
       this.props.onWeather({
         temperature: data.main.temp,

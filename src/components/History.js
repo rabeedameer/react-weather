@@ -34,8 +34,8 @@ class History extends React.Component {
             <Card>
               <CardImg top="top" width="100%" src={IMG} alt="image"/>
               <CardBody>
-                <CardTitle className="">{log.city}<FontAwesomeIcon icon={faMapMarkerAlt} className="text-success ml-2"/></CardTitle>
-                <CardSubtitle>{log.temperature}<FontAwesomeIcon icon={faThermometerHalf} className="text-danger ml-2"/></CardSubtitle>
+                <CardTitle className="">{`${log.city},${log.country}`}<FontAwesomeIcon icon={faMapMarkerAlt} className="text-success ml-2"/></CardTitle>
+                <CardSubtitle>{`${log.temperature} °C`}<FontAwesomeIcon icon={faThermometerHalf} className="text-danger ml-2"/></CardSubtitle>
                 <CardText>{log.condition}</CardText>
                 <Button>
                   <Link to="/">Back</Link>

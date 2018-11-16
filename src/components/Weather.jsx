@@ -5,33 +5,32 @@ import {faMapMarkerAlt, faThermometerHalf,faTint} from '@fortawesome/free-solid-
 import { Card, CardText, CardBody,
   CardTitle, CardSubtitle, Button, Row, Col } from 'reactstrap';
 // import bg from '../images/IMG_20181017_160629.jpg';
+
 const Weather = (props)=>(
 
          <Row className="container m-auto">
              <Col className="col-bg-6 .col-md-3 ">
                  <Card>
-                     {/* <CardImg top width="100%" src={bg} alt="image" /> */}
                      <CardBody>
                      <CardTitle className="display-1">
-                       {props.city}
+                      {props.city }
 
-                       {props.city &&<FontAwesomeIcon
-                        icon={faMapMarkerAlt} className="text-success ml-2"/>}
+                      {props.city  && <span>, {props.country} <FontAwesomeIcon icon={faMapMarkerAlt} className="text-success ml-2"/></span>}
                      </CardTitle>
 
                      <CardSubtitle className="display-4">
                       {props.temperature}
-                      {props.temperature && <FontAwesomeIcon icon={faThermometerHalf} className="text-danger ml-2"/>}
+                      {props.temperature && <span>°C <FontAwesomeIcon icon={faThermometerHalf} className="text-danger ml-2"/></span>}
                       </CardSubtitle>
 
                       <CardSubtitle className="display-4">
                       {props.humidity}
-                      {props.humidity &&
-                      <FontAwesomeIcon icon={faTint} className="text-primary ml-2"/>}
+                      {props.humidity && <span>% <FontAwesomeIcon icon={faTint} className="text-primary ml-2"/></span>
+                      }
 
                       </CardSubtitle>
 
-                     <CardText>{props.condition}</CardText>
+                     <CardText className="display-4">{props.condition}</CardText>
                      <CardText>{props.error}</CardText>
                      <Button>
                       <Link to="/history">
